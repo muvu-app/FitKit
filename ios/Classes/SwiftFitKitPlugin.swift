@@ -171,9 +171,6 @@ public class SwiftFitKitPlugin: NSObject, FlutterPlugin {
         if (request.type == "energy") {
             identifier = HKQuantityTypeIdentifier.activeEnergyBurned
             unit = HKUnit.kilocalorie()
-        } else if (request.type == "distance_cycling") {
-            identifier = HKQuantityTypeIdentifier.distanceCycling
-            unit = HKUnit.meter()
         } else if (request.type == "distance") {
             identifier = HKQuantityTypeIdentifier.distanceWalkingRunning
             unit = HKUnit.meter()

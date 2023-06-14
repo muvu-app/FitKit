@@ -91,8 +91,6 @@ class FitKit {
         return "weight";
       case IOSDataType.DISTANCE:
         return "distance";
-      case IOSDataType.DISTANCE_CYCLING:
-        return "distance_cycling";
       case IOSDataType.ENERGY:
         return "energy";
       case IOSDataType.WATER:
@@ -119,6 +117,5 @@ enum IOSDataType {
   WEIGHT,
   DISTANCE,
   ENERGY,
-  WATER,
-  DISTANCE_CYCLING
+  WATER
 }

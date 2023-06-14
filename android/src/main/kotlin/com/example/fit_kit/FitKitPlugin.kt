@@ -162,11 +162,6 @@ class FitKitPlugin(private val registrar: Registrar) : MethodCallHandler {
             }
         })
 
-        GoogleSignIn.requestPermissions(
-                registrar.activity(),
-                GOOGLE_FIT_REQUEST_CODE,
-                GoogleSignIn.getLastSignedInAccount(registrar.context()),
-                fitnessOptions)
     }
 
     private fun hasOAuthPermission(fitnessOptions: FitnessOptions): Boolean {
@@ -266,15 +261,12 @@ class FitKitPlugin(private val registrar: Registrar) : MethodCallHandler {
                 .filterNot { it.originalDataSource.streamName.isNullOrEmpty() }
                 .groupingBy { it.originalDataSource.streamName }
                 .eachCount()
-                .maxBy { it.value }
-                ?.key ?: session.name ?: ""
 
         return mapOf(
                 "value" to session.getValue(),
                 "date_from" to session.getStartTime(TimeUnit.MILLISECONDS),
                 "date_to" to session.getEndTime(TimeUnit.MILLISECONDS),
-                "source" to source,
-                "user_entered" to (source == "user_input")
+                "source" to source
         )
     }
 }
